@@ -1,0 +1,64 @@
+.cont-figure {
+  max-width: 120rem;
+  display: flex;
+  justify-content: space-evenly;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.figure {
+  max-width: 30rem;
+  display: flex;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  padding: 0.1rem;
+  flex-wrap: wrap;
+  border-radius: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+.img-figure {
+  position: relative;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  height: auto;
+  height: 18rem;
+  border-radius: 0.4rem;
+}
+
+.button-hamburges {
+  position: absolute;
+  bottom: 0;
+}
+
+.icon {
+  color: white;
+  font-size: 1.5rem;
+}
+.left {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.right {
+  left: 4.5rem;
+  bottom: 1rem;
+}
+
+.text-figure {
+  text-align: center;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 6px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: rgba(26, 25, 25, 0.363);
+  right: 0.5rem;
+  top: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+}
+.text-figure span {
+  margin-left: 0.4rem;
+}

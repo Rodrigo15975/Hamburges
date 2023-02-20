@@ -1,0 +1,42 @@
+body {
+  
+  margin: 0;
+  padding: 0;  
+  min-height: 100vh;
+  background-color: #fffdd3;
+  
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  height:3rem;
+  width: 3rem;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: #ff3c87;
+  
+}
+
+
+
+
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
