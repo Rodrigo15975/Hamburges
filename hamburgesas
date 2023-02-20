@@ -1,0 +1,259 @@
+css 
+.cont-figure {
+  max-width: 120rem;
+  display: flex;
+  justify-content: space-evenly;
+  row-gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+.figure {
+  max-width: 30rem;
+  display: flex;
+  padding: 1rem;
+  background-color: rgb(255, 255, 255);
+  padding: 0.1rem;
+  flex-wrap: wrap;
+  border-radius: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+.img-figure {
+  position: relative;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  height: auto;
+  height: 18rem;
+  border-radius: 0.4rem;
+}
+
+.button-hamburges {
+  position: absolute;
+  bottom: 0;
+}
+
+.icon {
+  color: white;
+  font-size: 1.5rem;
+}
+.left {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.right {
+  left: 4.5rem;
+  bottom: 1rem;
+}
+
+.text-figure {
+  text-align: center;
+  position: absolute;
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0 6px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: rgba(26, 25, 25, 0.363);
+  right: 0.5rem;
+  top: 0.5rem;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+}
+.text-figure span {
+  margin-left: 0.4rem;
+}
+
+index.css 
+
+
+body {
+  
+  margin: 0;
+  padding: 0;  
+  min-height: 100vh;
+  background-color: #fffdd3;
+  
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  height:3rem;
+  width: 3rem;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: #ff3c87;
+  
+}
+
+
+
+
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+jsx 
+
+
+import { useState } from "react";
+import "./App.css";
+import {
+  LazyMotion,
+  domAnimation,
+  m,
+  AnimatePresence,
+  Reorder,
+} from "framer-motion";
+
+import {
+  GrAdd,
+  IoAddCircleOutline,
+  MdOutlineRemoveShoppingCart,
+} from "react-icons/all";
+
+const Hamburges = [
+  {
+    id: 1,
+    name: "Hamburguesa clásica",
+    image:
+      "https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80",
+    imageHover:
+      "https://images.unsplash.com/photo-1550547660-d9450f859349?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80",
+    price: "2.45$",
+  },
+  {
+    id: 2,
+    name: "Hamburguesa de queso",
+    image:
+      "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1415&q=80",
+    imageHover:
+      "https://images.unsplash.com/photo-1540981493580-8ea1113e9968?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    price: "3.45$",
+  },
+  {
+    id: 3,
+    name: "Hamburguesa de pollo",
+    image:
+      "https://images.unsplash.com/photo-1525164286253-04e68b9d94c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    imageHover:
+      "https://images.unsplash.com/photo-1428660386617-8d277e7deaf2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    price: "4.45$",
+  },
+  {
+    id: 4,
+    name: "Hamburguesa vegetariana",
+    image:
+      "https://images.unsplash.com/photo-1491960693564-421771d727d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=763&q=80",
+    imageHover:
+      "https://plus.unsplash.com/premium_photo-1675746705208-3a48225465ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    price: "1.45$",
+  },
+  {
+    id: 5,
+    name: "Hamburguesa de salmón",
+    image:
+      "https://images.unsplash.com/photo-1549611016-3a70d82b5040?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1430&q=80",
+    imageHover:
+      "https://images.unsplash.com/photo-1542545256-84d8b442b26c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+    price: "6.45$",
+  },
+  {
+    id: 6,
+    name: "Hamburgesa millonaria",
+    image:
+      "https://images.unsplash.com/photo-1603508102983-99b101395d1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    imageHover:
+      "https://plus.unsplash.com/premium_photo-1675864534274-3652b78bfff1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    price: "10.45$",
+  },
+];
+
+function App() {
+  const [databaseHamburger, setDatabaseHamburger] = useState(Hamburges);
+  const [hoverImg, setHoverImg] = useState(null);
+
+  // const ChangeImg = (data) => {
+  //   return (
+  //     <m.img
+  //       key={hoverImg === data.id ? "hover" : "default"}
+  //       initial={{ opacity: 0 }}
+  //       animate={{ opacity: 1 }}
+  //       exit={{ opacity: 0 }}
+  //       className="img-figure"
+  //       src={hoverImg === data.id ? data.imageHover : data.image}
+  //       alt={data.name}
+  //     />
+  //   );
+  // };
+
+  const variantsHoverImg = {
+    hidden: { opacity: .8 },
+    visible: {
+      opacity: 1,
+      scale: 1.1,
+      transition: { type: "tween", duration: 1 },
+    },
+    exit: { opacity: .8 },
+  };
+
+  return (
+    <>
+      <LazyMotion features={domAnimation}>
+        <m.figure className="cont-figure">
+          {databaseHamburger.map((data, index) => (
+            <m.div
+              key={data.id}
+              className="figure"
+              onMouseOver={() => setHoverImg(data.id)}
+              onMouseOut={() => setHoverImg(null)}
+            >
+              <m.img
+                className="img-figure"
+                variants={variantsHoverImg}
+                initial="hidden"
+                animate="visible"
+                exit={"exit"}
+                key={hoverImg === data.id ? "hover" : "default"}
+                src={hoverImg === data.id ? data.imageHover : data.image}
+                alt={data.name}
+              />
+
+              <m.button className="button-hamburges left">
+                <IoAddCircleOutline className="icon" />
+              </m.button>
+              <m.button className="button-hamburges right ">
+                <MdOutlineRemoveShoppingCart className="icon" />
+              </m.button>
+              <m.figcaption className="text-figure">
+                <m.span>{data.name}</m.span>
+                <m.span>{data.price}</m.span>
+              </m.figcaption>
+            </m.div>
+          ))}
+        </m.figure>
+      </LazyMotion>
+    </>
+  );
+}
+
+export default App;
+
