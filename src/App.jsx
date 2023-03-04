@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import {
   LazyMotion,
@@ -9,10 +9,13 @@ import {
 } from "framer-motion";
 
 import {
+  BsBasket,
   GrAdd,
   IoAddCircleOutline,
   MdOutlineRemoveShoppingCart,
 } from "react-icons/all";
+import AskHamburges from "./Comoponents/ModalHamburges/AskHamburges";
+import User from "./Comoponents/Users/User";
 
 const Hamburges = [
   {
@@ -90,18 +93,23 @@ function App() {
   // };
 
   const variantsHoverImg = {
-    hidden: { opacity: .8 },
+    hidden: { opacity: 0.8 },
     visible: {
       opacity: 1,
       scale: 1.1,
       transition: { type: "tween", duration: 1 },
     },
-    exit: { opacity: .8 },
+    exit: { opacity: 0.8 },
   };
+
+  const [openOrders, setOpenOrders] = useState(false);
 
   return (
     <>
       <LazyMotion features={domAnimation}>
+        <User/>
+
+        <m.aside>{openOrders && <AskHamburges />}</m.aside>
         <m.figure className="cont-figure">
           {databaseHamburger.map((data, index) => (
             <m.div
@@ -124,16 +132,19 @@ function App() {
               <m.button className="button-hamburges left">
                 <IoAddCircleOutline className="icon" />
               </m.button>
-              <m.button className="button-hamburges right ">
-                <MdOutlineRemoveShoppingCart className="icon" />
+              <m.button
+                onClick={() => setOpenOrders(!openOrders)}
+                className="button-hamburges ask-btn "
+              >
+                <BsBasket className="icon" />
               </m.button>
               <m.figcaption className="text-figure">
                 <m.span>{data.name}</m.span>
                 <m.span>{data.price}</m.span>
               </m.figcaption>
             </m.div>
-          ))}
-        </m.figure>
+          ))}          
+        </m.figure>        
       </LazyMotion>
     </>
   );

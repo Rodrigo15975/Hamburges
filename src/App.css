@@ -1,8 +1,8 @@
 .cont-figure {
   max-width: 120rem;
   display: flex;
-  justify-content: space-evenly;
-  row-gap: 1rem;
+  justify-content:center;
+  gap: .5rem;
   flex-wrap: wrap;
   margin-top: 3rem;
 }
@@ -62,3 +62,10 @@
 .text-figure span {
   margin-left: 0.4rem;
 }
+
+.ask-btn{
+  left: 5rem;
+  bottom: 1rem;
+}
+
+
